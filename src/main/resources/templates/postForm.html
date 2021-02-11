@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<title>Coding Blog</title>
+	<!-- CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+</head>
+
+
+<body>
+	<header>
+		<nav class="navbar navbar-light bg-light">
+	    	<span class="navbar-brand mb-0 h1" style="font-weight: bold; font-size: 30px; padding-left: 15px;">Coding Blog</span>
+		</nav>
+	</header>
+
+	<section>
+		<div class="container" style="width: 60%; padding-bottom: 30px; padding-top: 40px">
+		
+			<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+	 			<li class="breadcrumb-item"><a href="posts">Home</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">Novo Post</li>
+			  </ol>
+			</nav>
+			<div>
+				<th:block th:include="mensagemValidacao"></th:block>
+		            <form method="post">
+		                <div class="form-group">
+		                    <input type="text" class="form-control" name="titulo" placeholder="Titulo *">
+		                </div>
+		                <div class="form-group" style="margin-top: 20px; margin-bottom: 20px;" >
+		                    <input type="text" class="form-control" name="autor" placeholder="Autor *">
+		                </div>
+		
+		                <textarea id="summernote" type="text" class="form-control" name="texto" placeholder="Texto *" style="margin-top: 20px"></textarea>
+		
+		                <small class="form-text text-muted">(*) Campos obrigatorios</small>
+		                <br>
+		
+		                <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Publicar</button>
+		                <a href="/posts" class="btn btn-light" role="button" style="margin-top: 10px;">Cancelar</a>
+		                <!--<button type="submit" class="btn" style="margin-top: 10px;">Cancelar</button>-->
+		            </form>
+        	</div>	
+		</div>
+	</section>
+	
+	<script>
+	    $('#summernote').summernote({
+	        placeholder: 'Texto *',
+	        tabsize: 2,
+	        height: 300
+	    });
+	</script>
+	
+</body>
+</html>
